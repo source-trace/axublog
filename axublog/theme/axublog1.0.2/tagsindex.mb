@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Tags标签-{$webname}</title>
+<meta name="description" content="">
+
+<?php include("top.mb");?>
+<!--seat-->
+<div id=seat>
+您的位置：<b><a href="{$weburl}">首页</a>>Tags标签</b> 
+<?php
+$a=getalltag();
+$shu=count($a);
+echo'<span>tags标签数量：'.$shu.'</span>';
+?>
+</div>
+<h6></h6>
+<!--seat-->
+<div id=tuoyuan>
+<?php
+for($i=1;$i<=$shu;$i++){
+$b=$a[$i-1];
+$id=$b['id'];
+$name=$b['name'];
+$htmlname=$b['htmlname'];
+$info=$b['info'];
+$url=tagtourl($htmlname);
+$atagshu=navidgetartids($id);
+$tagshu=count($atagshu);
+$sj=suiji7();
+echo '<li '.$sj.' ><a title="'.$info.'" href="'.$url.'" >'.$name.' ['.$tagshu.']</a></li>';
+}
+?>
+<h6></h6>
+</div>
+
+<?php include("copy.mb");?>

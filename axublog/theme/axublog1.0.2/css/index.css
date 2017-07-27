@@ -1,0 +1,226 @@
+﻿@charset "UTF-8";
+body{background:#F8F8F8;font-family:"Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;margin:0;padding:0;word-break:break-all;font-size:15px; }
+a{TEXT-DECORATION: none;color:#333;}
+a:hover{TEXT-DECORATION:underline;color:#0b7df2;}
+img{border:0;  width:expression(this.width>700?"700px":this.width);max-width:700px; }
+#br{clear:both;margin:0;padding:0;overflow:hidden;}
+
+
+ul{margin:0;padding:0;}
+div{margin:0;padding:0;}
+p{margin:0;padding:0;}
+#topmenu{background:#000;color:#fff;overflow:hidden;filter:alpha(opacity=80);opacity:0.8;background-image:url(button_bg.png);background-repeat:no-repeat; position:fixed;  width:100%;font-size:15px;}
+#topmenu a{color:#fff;}
+#topmenu1{}
+#topmenu1 #t12{float:left;}
+#topmenu1 #t1{padding-left:50px;width:33px;color:#fff;line-height:26px;}
+#topmenu1 #t2{padding-left:70px;color:#0091ba;width:60px;}
+#topmenu1 #t3{float:left;color:#fb9966;line-height:50px;}
+#topmenu2{float:left;}
+#topmenu2 li{list-style:none;float:left;}
+#topmenu2 li a{float:left;padding:0 8px 0 8px;color:#ccc;list-style-type:none;}
+#topmenu2 li a:hover{background:#0091ba;color:#fff;text-decoration:none;}
+#topmenu2 #choose{background:#0091ba;color:#fff;}
+#topmenu3 {float:right;padding-right:50px;font-size:12px;line-height:30px;}
+
+
+br{line-height:20px;}
+
+#logo{overflow:hidden;position:fixed;}
+#logo #img1{margin-top:200px;margin-left:5px;width:40px;}
+#logo a{cursor:pointer;}
+#wxlogo{width:40px;margin-left:5px;}
+#gototopimg{margin-top:0px;margin-left:5px;width:40px;}
+
+
+#all{padding: 70px 50px 0 50px;background:#f8f8f8;}
+h6{margin:0px;padding:0;clear:both;height:15px;}
+#left{float:left;padding:0px;margin:0;width:70%;margin-right:15px;}
+#right{float:left;padding:0px;margin:0;width:28%;}
+
+
+#seat{padding:15px;padding-bottom:11px;background:#fff;border:1px solid #efefef;color:#222;font-size:14px;
+ -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#seat b{}
+#seat span{padding-left:200px;}
+#seat a{color:#0b7df2;}
+#seat a:hover{color:#0b7df2;TEXT-DECORATION:underline;}
+
+#bloglist{padding:15px;padding-top:0;background:#fff;border:1px solid #efefef;color:#222;font-size:14px;
+ -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#bloglist h3 a{margin:0;padding:0;color:#0b7df2;font-size:22px;font-weight:bold;cursor:pointer;}
+#bloglist h3 a:hover{color:#0b7df2;TEXT-DECORATION:underline;}
+#bloglist li{list-style:none;float:left;font-size:15px;margin:0;padding:0 30px 0 19px;}
+#bloglist li a{color:#0b7df2;}
+#bloglist li a:hover{color:#0b7df2;TEXT-DECORATION:underline;}
+#bloglist #author{background:url(author.PNG) no-repeat;}
+#bloglist #date{background:url(date.PNG) no-repeat;}
+#bloglist #tags{background:url(tags.PNG) no-repeat;}
+#bloglist #pic{	
+	width:228px;
+	height:158px;
+	border:1px solid #ddd;
+	text-align:center;
+	float:left;
+	}
+
+#bloglist #pic img {
+	width: 222px;
+	height:152px;
+	padding-top:3px;
+	margin: 0;
+}
+#bloglist #pic:hover img{
+	width: 226px;
+	height:156px;
+		padding-top:1px;
+}
+#bloglist #info{margin-left:20px;min-height:160px;}
+#bloglist #btn a{float:right;TEXT-DECORATION: none;padding:2px;padding-left:15px;padding-right:15px;color:#fff;background:#34b0d9;height:20px;line-height:20px;
+ -moz-border-radius: 20px; /* Firefox */
+  -webkit-border-radius: 20px; /* Safari 和 Chrome */
+  border-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+#bloglist #btn a:hover{background:#0583ac;}
+
+
+#bloglist h1{margin:0;padding:0;color:#333;font-size:22px;font-weight:bold;padding:15px 0 15px 0;}
+#bloglist #content{margin:0;padding:0;}
+#bloglist h4{margin:0;padding:5px;}
+#bloglist h4 a{color:#0b7df2;}
+#bloglist h4 a:hover{text-decoration:underline;}
+#bloglist #h5{margin:0;padding:0;}
+
+
+#page{background:#fff;border:1px solid #efefef;height:35px;color:#222;font-size:14px;padding:15px;
+ -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#page a{TEXT-DECORATION: none;padding:10px;padding-left:15px;padding-right:15px;float:left;margin-left:10px;background:#eee;color:#333;
+ -moz-border-radius: 20px; /* Firefox */
+  -webkit-border-radius: 20px; /* Safari 和 Chrome */
+  border-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#page a:hover{background:#34b0d9;color:#fff;}
+#page #choose{background:#34b0d9;color:#fff;}
+
+
+
+
+#indexlinks{float:left;margin：0;padding:0;list-style-type:none;counter-reset:sectioncounter;
+margin：0;padding:10px;padding-top:0;background:#fff;border:1px solid #efefef;color:#222;font-size:14px;
+margin-bottom:10px;min-height:240px;
+ -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */} 
+#indexlinks h3{margin:10px 0 0 0;margin-bottom:5px;background:#34b0d9;padding:3px;padding-bottom:2px;color:#fff;font-weight:normal;font-size:14px;text-align:center;
+ -moz-border-radius: 20px; /* Firefox */
+  -webkit-border-radius: 20px; /* Safari 和 Chrome */
+  border-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}  
+#indexlinks #red{background:#f15e41;}
+#indexlinks #purple{background:#cc9999;}
+#indexlinks #green{background:#42ac6a;}
+#indexlinks #blue{background:#34b0d9;}
+#indexlinks #orange{background:#f1a655;}
+#indexlinks #yellow{background:#FFCC66;}
+#indexlinks #gray{background:#aaa;}
+
+#indexlinks li:before {content:counter(sectioncounter) "";counter-increment:sectioncounter; } 
+#indexlinks li{line-height:20px;margin：0;padding:0;} 
+#indexlinks_w15{padding:0;float:left;width:10px;height:20px;} 
+.s15 {height:340px;}
+
+
+.tag10{width:300px;}
+#tuoyuan{padding:15px; background:#fff;border:1px solid #efefef;-moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#tuoyuan #title{padding:0;margin:0 0 5px 0px;}
+#tuoyuan li{list-style:none;float:left;padding:0px;margin:0;height:20px;margin-right:5px;margin-top:10px;}
+#tuoyuan li a{TEXT-DECORATION: none;padding:2px;padding-left:10px;padding-right:10px;color:#fff;
+ -moz-border-radius: 20px; /* Firefox */
+  -webkit-border-radius: 20px; /* Safari 和 Chrome */
+  border-radius: 20px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+#tuoyuan li a:hover{
+ -moz-border-radius: 0px; /* Firefox */
+  -webkit-border-radius: 0px; /* Safari 和 Chrome */
+  border-radius: 0px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */
+}
+#tuoyuan #green a{background:#42ac6a;}
+#tuoyuan #green a:hover{background:#028231;}
+#tuoyuan #blue a{background:#34b0d9;}
+#tuoyuan #blue a:hover{background:#0583ac;}
+#tuoyuan #orange a{background:#f1a655;}
+#tuoyuan #orange a:hover{background:#e97705;}
+#tuoyuan #red a{background:#f15e41;}
+#tuoyuan #red a:hover{background:#d82508;}
+#tuoyuan #purple a{background:#cc9999;}
+#tuoyuan #purple a:hover{background:#996699;}
+#tuoyuan #yellow a{background:#FFCC66;}
+#tuoyuan #yellow a:hover{background:#FFCC00;}
+#tuoyuan #gray a{background:#aaa;}
+#tuoyuan #gray a:hover{background:#666;}
+#tuoyuan p{clear:both;margin:0;padding:0;height:0px;line-height:0px;}
+
+#hot10{font-size:14px;padding:15px;width:300px; background:#fff;border:1px solid #efefef;-moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#hot10 #title{padding:0;margin:0 0 15px 0px;font-size:18px;}
+#hot10 a{color:#0b7df2;background:url(art1616.png) no-repeat;padding-left:18px;line-height:24px;}
+#hot10 a:hover{color:#0b7df2;TEXT-DECORATION:underline;}
+
+
+#link10{font-size:14px;padding:15px;width:300px; background:#fff;border:1px solid #efefef;-moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#link10 #title{padding:0;margin:0 0 15px 0px;font-size:18px;}
+#link10 a{color:#0b7df2;background:url(link1616.png) no-repeat;padding-left:18px;line-height:24px;}
+#link10 a:hover{color:#0b7df2;TEXT-DECORATION:underline;}
+
+#sosuo10{font-size:14px;padding:15px;width:300px; background:#fff;border:1px solid #efefef;-moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+  border-radius: 10px; /* Opera 10.5+, 以及使用了IE-CSS3的IE浏览器 */}
+#sosuo10 #sosuotext{padding-left:5px;margin:0;border:1px solid #ccc;}
+#sosuo10 input{border:0;width:213px;margin:0;padding:0;outline:none;color:#333;padding-top:8px;}
+#sosuo10 #btn{color:#0b7df2;TEXT-DECORATION:none;TEXT-DECORATION: none;padding:8px;padding-left:12px;padding-right:12px;color:#fff;background:#34b0d9;height:31px;line-height:31px;cursor:pointer;
+}
+
+#copy{clear:both;text-align:center;padding-bottom:15px;color:#333;}
+#copy p{line-height:20px;}
+#copy a{color:#0b7df2;TEXT-DECORATION:none;padding-left:10px;}
+#copy a:hover{TEXT-DECORATION:underline;}
+#copy #left{float:left;width:45%;text-align:right;}
+#copy #right{float:left;width:49%;text-align:left;line-height:50px;}
+
+
+
+code, pre {
+    padding: 0 3px 2px;
+    color: #333;
+    font-size: 12px;
+    font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", monospace
+}
+code {
+    padding: 3px 4px;
+    background-color: #f5f5f5
+}
+pre {
+    display: block;
+    margin: 0 0 18px;
+    padding: 5px 7px;
+    background-color: #F0F0F0;
+    white-space: pre-wrap;
+    font-size: 12px;
+    line-height: 1.3em
+}
+pre.prettyprint {
+    border: none;
+}
+pre code {
+    padding: 0;
+    background-color: transparent
+}

@@ -2,8 +2,7 @@
 require_once('all.php');
 require_once('pinyin.php');
 global $date;
-#echo pinyin("榻榻米儿童房装修效果图");
-#die();
+chkadcookie();
 ?>
 <!DOCTYPE html>
 <html>
@@ -13,23 +12,84 @@ global $date;
     <link rel="stylesheet" type="text/css" href="css/right.css"> 
 		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
 			<script>
-	jQuery(function($){ 
+jQuery(function($){ 
 //全选 
-$("#chooseall").click(function(){ 
-$("input[name='checkbox']").attr("checked","true"); 
+	$("#chooseall").click(function(){ 
+	$("input[name='checkbox']").attr("checked","true"); 
+	}) 
+	//取消全选 
+	$("#unchooseall").click(function(){ 
+	$("input[name='checkbox']").removeAttr("checked"); 
+	}) 
+
+	$("#delchoose").click(function(){ 
+	var aa=""; 
+	$("input[name='checkbox']:checkbox:checked").each(function(){ aa=aa+$(this).val()+',' }) 
+	if(aa==''){alert("请选择要操作的文章！");}
+			else{if(confirm('确定[删除]选中项吗?')){
+				htmlobj=$.ajax({url:"ajax.php?g=delchooseart&ids="+aa,async:false});
+				$("#jieguo").html(htmlobj.responseText);
+			arr = aa.split(",");
+			shu=arr.length-1;
+			$("input[name='checkbox']").removeAttr("checked"); 
+					for (var i=0;i<shu;i++)
+					{
+					$("#list"+arr[i].replace(',','')).hide();
+					$("#artshu").html($("#artshu").text()-1);
+					}
+					setTimeout('$("#jieguo").html("");',1500);
+			}}
+			
+	}) 
+	
+
+	$("#delchoosssse").click(function(){ 
+	var aa=""; 
+	$("input[name='checkbox']:checkbox:checked").each(function(){ aa=aa+$(this).val()+',' }) 
+	if(aa==''){alert("请选择要操作的文章！");}
+		else{if(confirm('确定[删除]选中项吗?')){htmlobj=$.ajax({url:"ajax.php?g=delchooseart&ids="+aa,async:false});$("#jieguo").html(htmlobj.responseText);$("#list"+aa.replace(',','')).html(''); 
+		arr = aa.split(",");
+		alert
+		}}
+	}) 
+	
+	$("#gotopchoose").click(function(){ 
+	var aa=""; 
+	$("input[name='checkbox']:checkbox:checked").each(function(){ aa=aa+$(this).val()+',' }) 
+	if(aa==''){alert("请选择要操作的文章！");}
+		else{if(confirm('确定[置顶]选中项吗?')){htmlobj=$.ajax({url:"ajax.php?g=gotopchooseart&ids="+aa,async:false});$("#jieguo").html(htmlobj.responseText);setTimeout('location.href="?";',1000); }}
+		$("input[name='checkbox']").removeAttr("checked"); 
+	}) 
+	
+		$("#untopchoose").click(function(){ 
+	var aa=""; 
+	$("input[name='checkbox']:checkbox:checked").each(function(){ aa=aa+$(this).val()+',' }) 
+	if(aa==''){alert("请选择要操作的文章！");}
+		else{if(confirm('确定[取消置顶]选中项吗?')){htmlobj=$.ajax({url:"ajax.php?g=untopchooseart&ids="+aa,async:false});$("#jieguo").html(htmlobj.responseText);setTimeout('location.href="?";',1000); }}
+		$("input[name='checkbox']").removeAttr("checked"); 
+	}) 
+	
 }) 
-//取消全选 
-$("#unchooseall").click(function(){ 
-$("input[name='checkbox']").removeAttr("checked"); 
-}) 
-//或许选择项的值 
-$("#delchoose").click(function(){ 
-var aa=""; 
-$("input[name='checkbox']:checkbox:checked").each(function(){ aa=aa+$(this).val()+',' }) 
-if(aa==''){alert("请选择要操作的文章！");}
-else{if(confirm('确定删除选中项吗?')){htmlobj=$.ajax({url:"ajax.php?g=delchooseart&ids="+aa,async:false});$("#jieguo").html(htmlobj.responseText);location.href="?";}}
-}) 
-}) 
+
+function jsgotop(id){
+	var topid=id;
+	topid="top"+topid.replace(/,/, "");
+	htmlobj=$.ajax({url:"ajax.php?g=gotopchooseart&ids="+id,async:false});
+	$("#jieguo").html(htmlobj.responseText);
+	$("#"+topid).html("[已置顶]");
+	$("#img"+topid).html("<img onclick=jsuntop('"+id+"') title=将文章置顶/取消置顶 src=images/rocket.png >");
+	setTimeout('$("#jieguo").html("");',1500);
+}
+
+function jsuntop(id){
+	var topid=id;
+	topid="top"+topid.replace(/,/, "");
+	htmlobj=$.ajax({url:"ajax.php?g=untopchooseart&ids="+id,async:false});
+	$("#jieguo").html(htmlobj.responseText);
+	$("#"+topid).html("");
+		$("#img"+topid).html("<img onclick=jsgotop('"+id+"') title=将文章置顶/取消置顶 src=images/rocket.png >");
+		setTimeout('$("#jieguo").html("");',1500);
+}
 
 
 </script>
@@ -80,7 +140,8 @@ function savedraft(){
 	if(frm.title.value=='在此键入标题'){frm.title.value='';}
 	editor.sync();
 var cont = $("input,select,textarea").serialize();
-$.ajax({url:'ajax.php?g=savedraft',type:'post',dataType:'json',data:cont,success:function(data){var str = data.jieguo;$("#jieguo").html(str);}});
+$.ajax({url:'ajax.php?g=savedraft',type:'post',dataType:'json',data:cont,success:function(data){var str = data.jieguo;$("#jieguo").html(str);frm.id.value=data.id;}});
+
 setTimeout('$("#jieguo").html("");',3000); 
 }
 
@@ -123,8 +184,6 @@ function artlist(){
 <?php
 global $tabhead;
 $tab=$tabhead."arts";
-#$nav="未分类";
-#$chk=" where type='art'";
 $chk="";
 mysql_select_db($tab);
 $sql = mysql_query("select * from ".$tab.$chk."");
@@ -138,17 +197,19 @@ $page = new page($options);
 $sql =  mysql_query("select * from ".$tab.$chk." order by id desc limit $page->first_row , $page->list_rows");
 ?>
 <div id=rightmenu>
-<div id=rightmenu_top><ul><li><b>您的位置：文章列表 < <a href="right.php">后台首页</a></b></li></ul></div>
+<div id=rightmenu_top><ul><li><b>您的位置：<a href="art.php">文章列表</a> < <a href="right.php">后台首页</a></b></li></ul></div>
 <ul>
 <span id="jieguo"></span>
-
 <div id=artlist>
-<div id=id>id</div>
-<div id=title>标题(文章【<?=$artshu?>】篇)</div>
-<div id=tag>Tags标签</div>
-<div id=author>作者</div>
-<div id=thedate>日期</div>
-</div>    
+<ul id=top>
+<li id=ico>id</li>
+<li id=set1>操作</li>
+<li id=name>标题</li>
+<li id=tags>tags标签</li>
+<li id=author>作者</li>
+<li id=date>日期</li>
+</ul>
+ 
 <?php
 global $artpath;
 if(!$sql){echo "<font color=red>(打开数据库时遇到错误!)</font>";return false;}
@@ -161,8 +222,12 @@ $p_title=mb_substr($row['title'],0,20,'utf-8');
 $p_htmlname=$row['htmlname'];
 $p_arturl=arttourl($p_htmlname);
 $p_date=$row['cdate'];
-$chkhn='';$showchkhn='';
-if(!file_exists('../'.$artpath.$p_htmlname)){$chkhn='<font color=red>X</font>';$showchkhn='<font color=red>未</font>';}else{$chkhn='√';$showchkhn='已';}
+$p_top=$row['top'];
+$chktop='';
+$chktop2='jsgotop';
+if($p_top=='yes'){$chktop='[已置顶]';$chktop2='jsuntop';};
+$chkhtml='id=grayimg';
+if(file_exists('../'.$artpath.$p_htmlname)){$chkhtml='';}
 $p_nav='';
 $p_tag='';
 $chktype='';
@@ -178,26 +243,41 @@ $shu=count($a);
     }
 if($p_type=='draft'){$chktype="[草稿] ";$p_tag=$row['tags'];}
 echo <<<EOF
-        <div id=artlist>
-          <div id=id><input type="checkbox" name="checkbox" value='{$p_id}'>{$p_id}<a href='?g=edit&id={$p_id}'>编辑</a>|<a onclick="if(confirm('确定删除吗?')){location.href='?g=del&id={$p_id}';}">删除</a>|<a href='html.php?g=haart&p={$p_htmlname}'>{$showchkhn}生成{$chkhn}</a>|<a href='{$p_arturl}' target=_blank>查看</a></div>
-          <div id=title>{$chktype}{$p_title}</div>
-          <div id=tag>{$p_tag}</div>          
-          <div id=author>{$p_author}</div>
-          <div id=thedate>{$p_date}</div>
-        </div>
+<ul id=list{$p_id} >
+<li id=ico>{$p_id}</li>
+<li id=set>
+<input type="checkbox" name="checkbox" value='{$p_id}'>
+<a id=imgtop{$p_id} ><img onclick="{$chktop2}('{$p_id},')" title="将文章置顶/取消置顶" src="images/rocket.png"></a>
+<a href='{$p_arturl}' target=_blank><img title=预览html页面 src="images/ie.png"></a>
+<a href='?g=edit&id={$p_id}'><img title=编辑修改 src="images/edit.png"></a>
+<a href='html.php?g=haart&p={$p_htmlname}'><img {$chkhtml}  title=生成html页面 src="images/build.png"></a>
+<a onclick="if(confirm('确定 [删除] 吗?')){location.href='?g=del&id={$p_id}';}"><img  title=删除 src="images/delete.png"></a>
+</li>
+<li id=name><a href='?g=edit&id={$p_id}' title=编辑修改 >{$chktype}<span id=top{$p_id} >{$chktop}</span>{$p_title}</a></li>
+<li id=tags>{$p_tag}</li>
+<li id=author>{$p_author}</li>
+<li id=date>{$p_date}</li>
+</ul>
 EOF;
 }
 ?>
-
-<div id=page>
+<div id=artlist_shu>
+<div id=page> 文章数量：<span id=artshu><?=$artshu?></span>篇 
      <?=$page->show(1)?>
 </div>
+</div>
+
+</div>
+
+
 <br>
 <span id="artlist_btn">
+<a  id=btn_blue  onclick="location.href='art.php?g=addart';">发布文章</a>
 <a  id=chooseall  >全选</a>
 <a  id=unchooseall  >取消全选</a>
 <a  id=delchoose  onclick="delchoose()">删除</a>
-<a  id=btn_blue  onclick="location.href='art.php?g=addart';">发布文章</a>
+<a  id=gotopchoose >置顶</a>
+<a  id=untopchoose >取消置顶</a>
 <a  id=btn_yellow onclick="if(confirm('确定删除所有吗?')){location.href='?g=delall';}">删除所有</a>
 <a  id=btn_blue href="?g=chkall">修复错误</a>
 </span>
@@ -210,12 +290,13 @@ EOF;
 ?>
 
 
+
 <?php 
 function addart(){
 $_SESSION['jdate']='';$_SESSION['jid']='';
 global $webauthor,$date;
 global $tabhead;
-@$title=$_GET['title'];
+$title=$_GET['title'];
 @$content=$_GET['content'];
 ?>
 <?php script()?>
@@ -224,11 +305,12 @@ global $tabhead;
 <ul>
 <span id="jieguo"></span>
 <div id=addart_left>
-<form id="frm" name="frm" method="post" action="?g=addsave" onSubmit="return false;" >
+<form id="frm" name="frm" method="post" action="?g=editsave&id=<?=$_SESSION['jid']?>" onSubmit="return false;" >
+
 <?php
 if($title==''){$title='在此键入标题';}
 ?>
-<p><input  style="width:400px"  type=text name=title id=title_txt value="<?=$title?>" onfocus="if(this.value=='在此键入标题'){this.value=''}" onblur="if(this.value==''){this.value='在此键入标题'}">文章标题，严禁特殊符号</p>
+<p><input type=hidden size=10 name=id id=id type=text ><input  style="width:400px"  type=text name=title id=title_txt value="<?=$title?>" onfocus="if(this.value=='在此键入标题'){this.value=''}" onblur="if(this.value==''){this.value='在此键入标题'}">文章标题，严禁特殊符号</p>
 <p><input  style="width:400px"  name=htmlname type=text value="默认自动转为拼音" onfocus="if(this.value=='默认自动转为拼音'){this.value=''}" onblur="if(this.value==''){this.value='默认自动转为拼音'}">html别名，静态目录，严禁特殊符号</p>
 <p><textarea id="content" name="content" style="width:670px;height:380px;visibility:hidden;"><?=$content?></textarea></p>
 </div>
@@ -428,6 +510,7 @@ function editsave(){
 chkoutpost();
 global $tabhead,$webname,$webinfo,$weburl,$webauthor,$themepath,$artpath,$tagpath,$title;
 $id=$_POST['id'];
+if($id==''){addsave();exit;}
 $title=$_POST['title'];
 $htmlname=htmlnameguolv($_POST['htmlname']);
 if($htmlname=='默认自动转为拼音'|$htmlname==''){$htmlname=pinyin($title);}
@@ -609,14 +692,11 @@ function chkall(){
 chkoutpost();
 
 global $tabhead;
-$tab=$tabhead."arts";
-mysql_select_db($tab);
-$sql = "ALTER TABLE ".$tab." ADD tags varchar(100) NOT NULL";
-if (mysql_query($sql)){echo "添加tags字段成功<br>";}
-else{echo "<font color=red>添加tags字段失败</font><br>";}
+$sql = "ALTER TABLE ".$tabhead."arts ADD tags varchar(100) NOT NULL";if (mysql_query($sql)){}
+$sql = "ALTER TABLE ".$tabhead."arts ADD top varchar(10) NOT NULL";if (mysql_query($sql)){}
+$sql = "ALTER TABLE ".$tabhead."adusers ADD type varchar(10) NOT NULL";if (mysql_query($sql)){}
 
-
-$sql = mysql_query("select * from ".$tab." ");
+$sql = mysql_query("select * from ".$tabhead."arts ");
 if(!$sql){echo "<font color=red>(getallart打开数据库时遇到错误!)</font>";return false;}
 while($row=mysql_fetch_array($sql))
 {

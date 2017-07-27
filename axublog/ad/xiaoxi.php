@@ -1,5 +1,5 @@
 <?php 
-include_once("all.php");
+include_once("all.php");chkadcookie();
 header("Content-type:text/html; charset=utf-8");
 @$g=$_GET["g"];
 $file='../'.$cachepath."xiaoxi.txt";

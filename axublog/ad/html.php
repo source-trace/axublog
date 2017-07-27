@@ -373,7 +373,7 @@ global $tabhead,$webname,$webinfo,$weburl,$webauthor,$themepath,$artpath,$tagpat
 $mb="../".$themepath."arts.mb";
 $cache="../".$artpath.$p."/index.html";
 if (! file_exists ("../".$artpath.$p)) {
-			chmod ("../".$artpath.$p, 0777 );
+			chmod ("../".$artpath.$p, 777 );
 			mkdir ("../".$artpath.$p, 0777 );
 }
 echo '<span>['.$p.'] 生成页面成功，<a target=_blank href="'.$cache.'" >查看》</a> <a href="javascript:history.back()">《返回</a></span><br>';

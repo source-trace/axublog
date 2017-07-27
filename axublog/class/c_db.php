@@ -66,7 +66,7 @@ mysql_select_db($tab);
 $sql = mysql_query("select * from ".$tab.$chk." order by id desc");
 if(!$sql){echo "<font color=red>(getallnav打开数据库时遇到错误!)</font>";return false;}
 #$_COOKIE['tagshu']= mysql_num_rows($sql);
-setcookie("tagshu",mysql_num_rows($sql), time()+8640000);
+@setcookie("tagshu",mysql_num_rows($sql), time()+8640000);
 $b=array();
 while($row=mysql_fetch_array($sql))
 {
@@ -123,8 +123,8 @@ $url=tagtourl($htmlname);
 $atagshu=navidgetartids($id);
 $tagshu=count($atagshu);
 $sj=suiji7();
-if($tagshu>3){@$str=$str.'<li '.$sj.'><a title="'.$info.' " href="'.$url.'" >'.$name.' ['.$tagshu.']</a></li>';}
-if(@$i<3){@$str2=$str2.'<li '.$sj.'><a title="'.$info.' " href="'.$url.'" >'.$name.' ['.$tagshu.']</a></li>';}
+if($tagshu>2){@$str=$str.'<li '.$sj.'><a title="'.$info.' " href="'.$url.'" >'.$name.'</a></li>';}
+if(@$i<2){@$str2=$str2.'<li '.$sj.'><a title="'.$info.' " href="'.$url.'" >'.$name.'</a></li>';}
 }
 if(@$str==''){@$str=$str2;}
 return $str;

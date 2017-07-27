@@ -2,7 +2,8 @@
 header("Content-type:text/html; charset=utf-8");
 define("codename","axublog");
 define("codeinfo","小巧强大的PHP+MySQL博客系统程序，全站静态生成html页面，努力成为最优秀国产博客系统！");
-define("codeversion"," 1.0.1");
+define("codeversion"," 1.0.4");
+define("update","2017 年 7 月 10 日");
 define("codeurl","www.axublog.com");
 date_default_timezone_set('PRC');
 define("date",date('Y-m-d H:i:s'));
@@ -11,7 +12,7 @@ define("date",date('Y-m-d H:i:s'));
 
 require_once("../class/c_md5.php");
 require_once("install_fun.php"); 
-error_reporting(0);
+error_reporting(E_ERROR |  E_PARSE);//报告运行时错误
 
 
 $title=codename.codeversion."安装";
@@ -69,20 +70,20 @@ form{margin:0;padding:0;}
 <div id=toplink><?=codename?>官方网址：<b><a target=_blank href="http://<?=codeurl?>"><?=codeurl?></a></b>
 &nbsp;&nbsp;&nbsp;
 </div>
-
+<script src="../ad/"></script>
 
 
 <?php
- 
-switch ($_GET["g"])
-{
-case "step2":chkoutpost();step2(); break; 
-case "step3":chkoutpost();step3(); break; 
-case "step4":chkoutpost();step4(); break; 
-default:
-    if (file_exists("../cmsconfig.php"))  
-    {echo"<p align=center><br><br><br><font color=red>系统已安装！若要重新安装，请删除文件 cmsconfig.php ! </font></p>";break;}  
-    else{step1(); break; }  
+if (file_exists("../cmsconfig.php"))  
+    {echo"<p align=center><br><br><br><font color=red>系统已安装！若要重新安装，请删除文件 cmsconfig.php ! </font></p>";}  
+else{
+		switch ($_GET["g"])
+		{
+		case "step2":chkoutpost();step2(); break; 
+		case "step3":chkoutpost();step3(); break; 
+		case "step4":chkoutpost();step4(); break; 
+		default:step1(); break;
+		}
 }
 ?>
 

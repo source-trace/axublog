@@ -1,2 +1,15 @@
 此目录为主题存放专用，请勿重命名或移动删除！
 此目录中主题目录需要用英文命名！
+
+例如
+主题目录default
+default内文件介绍
+info.txt
+top.mb头部代码
+coby.mb底部代码
+index.mb首页模版
+tagsindex.mb首页模版（tag标签）
+tags.mb单个tag标签下的文章列表
+about.mb关于本站
+allarts.mb文章归档
+arts.mb单个文章

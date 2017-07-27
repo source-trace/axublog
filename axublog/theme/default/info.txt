@@ -1,10 +1,10 @@
 ﻿<name>default</name>
 <info>axublog</info>
 <url>http://www.axublog.com</url>
-<version>1.0.1</version>
+<version>1.0.2</version>
 <author>Donny</author>
 <email>donghuigu@qq.com</email>
 <date>2012-1-6</date>
-<lastdate>2017-6-19</lastdate>
+<lastdate>17:36 2017-6-25</lastdate>
 
 

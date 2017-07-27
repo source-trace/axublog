@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>关于本站-{$webname}</title>
+<meta name="description" content="">
+
+<?php include("top.mb");?>
+
+<!--seat-->
+<div id=seat>您的位置：<b><a href="{$weburl}">首页</a>>关于本站</b></div>
+<h6></h6>
+<!--seat-->
+
+<!--blog start-->
+<div id=bloglist>
+<!--title start-->
+<h1>关于本站</h1>
+<h6></h6>
+<!--title end-->
+<!--content start-->
+<div id=content> 
+<p>	网站创建日期：{$webbegindate}正式上线</p>
+<p>	网站运行天数：<a id="days">0</a>天</p>
+<p>	站长：{$webauthor}</p>
+<p>	网站玉米：{$weburl}</p>
+<p>	网站简介：{$webinfo}</p>
+
+<p></p>
+<script>
+var s1 = '{$webbegindate}';//设置为你的建站时间
+s1 = new Date(s1.replace(/-/g, "/"));
+s2 = new Date();
+var days = s2.getTime() - s1.getTime();
+var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+document.getElementById('days').innerHTML = number_of_days;
+</script>
+
+<!-- BDFX BEGIN -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!-- BDFX BEGIN -->
+
+<!--comment start-->
+<div id="SOHUCS" sid="about" ></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyt3WqsP0',
+conf: 'prod_398baec422de420c9a96c4506706a9dc'
+});
+</script>
+<!-- comment END -->
+
+</div>
+<!--content end-->
+</div>
+<!--blog end-->
+<h6></h6>
+
+
+<?php include("copy.mb");?>

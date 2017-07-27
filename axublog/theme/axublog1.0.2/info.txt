@@ -1,0 +1,10 @@
+﻿<name>axublog</name>
+<info>axublog</info>
+<url>http://www.axublog.com</url>
+<version>1.0.2</version>
+<author>Donny</author>
+<email>donghuigu@qq.com</email>
+<date>2012-1-6</date>
+<lastdate>14:42 2017-6-22</lastdate>
+
+

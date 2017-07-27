@@ -1,6 +1,5 @@
 <?php
-ini_set("error_reporting","E_ALL & ~E_NOTICE");
-#error_reporting(0);
+error_reporting(E_ERROR |  E_PARSE);//报告运行时错误
 #session_start();
 #header("Content-type:text/html; charset=utf-8");
 

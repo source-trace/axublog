@@ -28,8 +28,8 @@ function step1(){
 
 版权所有 ©2017 axublog保留所有权利。<br>
 协议发布时间：2017 年 6 月 1 日<br>
-版本最新更新：2017 年 6 月 1 日<br>
-
+版本更新日期：<?=update?><br>
+首次发布日期：2017 年 6 月 1 日<br>
 </div>
 </div>
 <div id=sp4><b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b"></b></div>
@@ -231,7 +231,8 @@ mysql_select_db($dbname);
 $create = "CREATE TABLE ".$tabhead."adusers ( 
 id int NOT NULL AUTO_INCREMENT,PRIMARY KEY(id),
 adnaa varchar(25) NOT NULL,
-adpss varchar(55) NOT NULL
+adpss varchar(55) NOT NULL,
+type varchar(10) NOT NULL
 )  DEFAULT CHARSET=utf8";
 if (mysql_query($create)){echo $tabhead."adusers表创建成功<br>";}
 else{echo $tabhead."adusers表<font color=red>创建失败</font>，原因：已存在<br>";$chkuser='请马上对管理员列表做编辑！';}
@@ -246,7 +247,8 @@ type varchar(25) NOT NULL,
 hit int(10) NOT NULL,
 cdate datetime NOT NULL,
 edate datetime NOT NULL,
-tags varchar(100) NOT NULL
+tags varchar(100) NOT NULL,
+top varchar(10) NOT NULL
 )  DEFAULT CHARSET=utf8";
 if (mysql_query($create)){echo $tabhead."arts表创建成功<br>";}
 else{echo $tabhead."arts表<font color=red>创建失败</font>，原因：已存在<br>";}
@@ -328,19 +330,11 @@ else{echo"向".$tab."表中添加记录<font color=red>失败</font><br>";}
 
 
 
-
 $ad_psw2=authcode(@$ad_psw, 'ENCODE', 'key',0); 
 mysql_select_db($tabhead."adusers"); 
 $sql="INSERT INTO ".$tabhead."adusers (id,adnaa,adpss) VALUES (1,'".$ad_user."','".$ad_psw2."')";
 if(mysql_query($sql)){echo"向".$tabhead."adusers表中添加管理员账户".$ad_user."成功<br>";}
 else{echo"向".$tabhead."adusers表中添加管理员账户".$ad_user."<font color=red>失败</font><br>";}
-
-
-
-
-
-
-
 
 
 $file="config_empty.php";
@@ -358,11 +352,13 @@ $text2=str_replace('@webkeywords@',$webkeywords,$text2);
 $text2=str_replace('@webauthor@',$webauthor,$text2);
 $file="../cmsconfig.php";          //定义文件
 $fp=fopen($file,"w");         //以写入方式打开文件
-fwrite($fp,$text2);  
+fwrite($fp,$text2); 
+@unlink("goinstall.php");  
 ?>
 <p align=center>安装完成，请牢记您的<font color=red>管理员账户:<?php echo $ad_user?> , 密码<?php echo $ad_psw?></font></p>
-<p align=center><a href="../ad">进入后台</a> > </p>
-<p id=redbold align=center>后台管理路径：/ad，不安全，建议重命名</p>
+<p align=center><a href="../ad/art.php?g=chkall">进入后台</a> > </p>
+<p id=redbold align=center>出于安全原因，本程序已自删除</p>
+<p id=redbold align=center>默认后台管理路径：/ad，不安全，建议重命名</p>
 </div>
 </div>
 <div id=sp4><b class="b4b d1"></b><b class="b3b d1"></b><b class="b2b d1"></b><b class="b1b"></b></div>

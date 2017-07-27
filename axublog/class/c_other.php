@@ -525,10 +525,21 @@ EOF;
 #跳转页面
 
 function chkoutpost(){
+	header("Content-type:text/html; charset=utf-8");
 @$fromurl=$_SERVER['HTTP_REFERER'];
 if($fromurl==''){echo'<div id=err>禁止非法提交！</div>';die();}
 }
 #禁止站外提交
+
+Function inject_check($sql_str) {
+	header("Content-type:text/html; charset=utf-8");
+    return 	preg_match('/select|insert|update|delete|\'|\\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i',$sql_str);
+}
+Function sqlguolv() {
+		header("Content-type:text/html; charset=utf-8");
+if (preg_match('/select|insert|update|delete|\'|\\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i',$_SERVER['QUERY_STRING'])==1 or preg_match('/select|insert|update|delete|\'|\\*|\*|\.\.\/|\.\/|union|into|load_file|outfile/i',file_get_contents("php://input"))==1){echo "警告 非法访问！";    exit;}
+}
+
 
 
 ?>

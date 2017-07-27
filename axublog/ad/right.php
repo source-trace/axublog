@@ -75,6 +75,7 @@ if(@$_COOKIE['tagshu']==''){getalltag();getallart();chkthemeappshu();}
 <p>
 <span>服务器操作系统： <?PHP echo PHP_OS; ?> </span>
 <span>服务器端信息： <?PHP echo $_SERVER ['SERVER_SOFTWARE']; ?> </span>
+<span>PHP版本：<?=PHP_VERSION; ?></span>
 <span>MYSQL版本：<?=@mysql_get_server_info(); ?></span>
 </p>
 <?
@@ -113,14 +114,18 @@ echo "</p> ";
 <button id="send3" >清除所有缓存</button><span id="get3"></span>
 </p>
 
-<p>官网最新消息 <button id="send2" >刷新</button><br>
-<span id="xiaoxi"><?=@$_COOKIE["xiaoxi"]?></span>
+<p id=xiaoxi2>官网最新消息 <button id="send2" >刷新</button>
 </p>
+<div id="xiaoxi"><?=@$_COOKIE["xiaoxi"]?></div>
 
 
-<p>程序设计：Donny</p>
 <p>界面设计：Donny</p>
-<p><?=$codename?>官方链接：程序下载 插件中心 主题中心 </p>
+<p><?=$codename?>官方链接：
+<a target=_blank href="http://www.axublog.com/tags/geng_xin_221437/">程序下载</a> 
+<a  target=_blank href="http://www.axublog.com/tags/cha_jian_181641/">插件中心</a> 
+<a  target=_blank href="http://www.axublog.com/tags/zhu_ti_112835/">主题中心</a> 
+<a  target=_blank href="http://www.axublog.com/post/axublog_yi_jian_jian_yi_2821/">意见建议</a> 
+</p>
 </ul></div>
 
 

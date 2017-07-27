@@ -1,0 +1,54 @@
+<link rel="stylesheet" type="text/css" href="{$weburl}{$themepath}css/index.css">
+<LINK title="{$webname} RSS Feed" href="{$weburl}rss.xml" type=application/rss+xml rel=alternate>
+<link rel="shortcut icon" href="{$weburl}{$themepath}css/favicon.ico" >
+<link rel="icon" href="{$weburl}{$themepath}css/favicon.ico" type="image/gif" >
+<script src="{$weburl}{$themepath}css/index.js"></script>
+</head>
+<body>
+<!--topmenu start-->
+<div id=topmenu>
+<div id=topmenu1>
+<div id=t12><p id=t1>PHP</p>
+<p id=t2>MYSQL</p>
+</div>
+<p id=t3>{$webname}</p>
+</div>
+<div id=topmenu2>
+<ul>
+<li><a href="{$weburl}">首页</a></li>
+<li><a href="{$weburl}{$tagpath}" title="tags标签">Tags</a></li>
+<li><a href="http://www.axublog.com/tags/geng_xin_221437/" title="axublog建站系统下载">程序下载</a></li>
+<li><a href="http://www.axublog.com/tags/zhu_ti_112835/" title="axublog主题下载，theme download">主题下载</a></li>
+<li><a href="http://www.axublog.com/tags/cha_jian_181641/" title="axublog插件下载，app download">插件下载</a></li>
+<li><a href="http://www.axublog.com/post/axublog_yi_jian_jian_yi_2821/" title="bug反馈和您的想法">意见建议</a></li>
+{$topmenu}
+</ul>
+</div>
+<!--topmenu3 start-->
+<div id=topmenu3>
+{$webinfo}
+</div>
+<!--topmenu3 end-->
+</div>
+<!--topmenu end-->
+
+<!--logo start-->
+<div id=logo><a href="{$weburl}" title="首页"><img id=img1 alt="首页" src="{$weburl}{$themepath}css/logo300300.gif" ></a><br><br>
+<a onclick="showwx()" title="微信扫一扫，关注公众号"><img alt="微信扫一扫，关注公众号" id=wxlogo src="{$weburl}{$themepath}css/weixin2weima.jpg" ></a><br><br>
+<a href="#all" title="回到网页顶部"><img id=gototopimg src="{$weburl}{$themepath}css/gototop.gif" ></a>
+</div>
+<!--logo end-->
+
+<div id=topjs><script src="{$weburl}{$themepath}top.js"></script></div>
+
+<div id=all>
+<!--[if IE]> <script>ietopmenu()</script> <![endif]-->
+
+<!--[if !IE]><!-->
+<script>sup()</script>
+<script>scroll(function(direction) { console.log(direction) });  </script>
+<!--<![endif]-->
+<!--topmenu滚动条特效 end-->
+
+<!--left start-->
+<div id=left>

@@ -1,7 +1,8 @@
 <?php
+header("Content-type:text/html; charset=utf-8");
 require("cmsconfig.php");
-
-
+require("class/c_other.php");
+sqlguolv();
 
 $g=$_GET['g'];
 

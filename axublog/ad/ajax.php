@@ -2,7 +2,7 @@
 require_once('all.php');
 require_once('pinyin.php');
 header("Content-type:text/html;charset=utf-8");
-#chkoutpost();
+chkadcookie();
 $g=$_GET["g"];
     switch ($g)
     {
@@ -17,15 +17,43 @@ case "js_loginpost":js_loginpost();break;
 case "clearcache":clearcache();break; 
 case "savedraft":savedraft();break; 
 case "delchooseart":delchooseart();break; 
+case "gotopchooseart":gotopchooseart();break; 
+case "untopchooseart":untopchooseart();break; 
     }
 
-function delchooseart(){
+	
+function untopchooseart(){
 global $tabhead;
 $tab=$tabhead."arts";
 $ids=$_GET['ids'];
 $a=explode(',',$ids);
 $shu=count($a);
+	for($i=0;$i<$shu-1;$i++){
+$sql="UPDATE ".$tab." SET top='0'  where id=".$a[$i];
+if(mysql_query($sql)){$chk=$chk.$a[$i].',';}
+	}
+echo '<div id=appmsg>'.$chk.'已取消置顶</div>';
+}	
+	
+function gotopchooseart(){
 global $tabhead;
+$tab=$tabhead."arts";
+$ids=$_GET['ids'];
+$a=explode(',',$ids);
+$shu=count($a);
+	for($i=0;$i<$shu-1;$i++){
+$sql="UPDATE ".$tab." SET top='yes'  where id=".$a[$i];
+if(mysql_query($sql)){$chk=$chk.$a[$i].',';}
+	}
+echo '<div id=appmsg>'.$chk.'已置顶</div>';
+}	
+
+	
+function delchooseart(){
+global $tabhead;
+$ids=$_GET['ids'];
+$a=explode(',',$ids);
+$shu=count($a);
 	for($i=0;$i<$shu-1;$i++){
 		$tab=$tabhead."arts";
 		$sql="DELETE FROM ".$tab." WHERE id=".$a[$i];
@@ -58,21 +86,19 @@ $htmlname=addslashes($htmlname);
 $author=addslashes($author);
 $tags=addslashes($tags);
 $tab=$tabhead."arts";
-mysql_select_db($tab);
-$sql = "ALTER TABLE ".$tab." ADD tags varchar(100) NOT NULL";if (mysql_query($sql)){}
 if($_SESSION['jid']==''){
 	$sql="INSERT INTO ".$tab." (id,author,title,content,htmlname,type,hit,cdate,edate,tags) VALUES (null,'".$author."','".$title."','".$content."','".$htmlname."','".$type."',1,'".$date."','".$date."','".$tags."')";
-	if(mysql_query($sql)){$chk="保存草稿成功";$_SESSION['jid']=mysql_insert_id();}else{$chk="保存草稿失败";}
+	if(mysql_query($sql)){$_SESSION['jid']=mysql_insert_id();$chk="保存草稿".$_SESSION['jid']."成功";}else{$chk="保存草稿失败";}
 }
 else{
 	$sql2="UPDATE ".$tab." SET author='".$author."',title='".$title."',type='".$type."',content='".$content."',htmlname='".$htmlname."',edate='".$date."',tags='".$tags."' where id=".$_SESSION['jid'];
-	if(mysql_query($sql2)){$chk="保存草稿成功";}else{$chk="保存草稿失败";}
+	if(mysql_query($sql2)){$chk="保存草稿".$_SESSION['jid']."成功";}else{$chk="保存草稿".$_SESSION['jid']."失败";}
 }
 delarttags($oldtags,$_SESSION['jid']);
 addtags($tags,$_SESSION['jid']);
 
 $jieguo='<div id=appmsg>'.$chk.'</div>';
-$json_arr = array("jieguo"=>$jieguo);
+$json_arr = array("jieguo"=>$jieguo,"id"=>$_SESSION['jid']);
 $json_obj = json_encode($json_arr);
 echo $json_obj;
 }

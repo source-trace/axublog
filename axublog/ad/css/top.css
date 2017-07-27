@@ -9,7 +9,7 @@ div,ul,li{margin:0;padding:0;}
 #nav{width:100%-100px;height:40px; background:url(../images/logo8831.gif) no-repeat 10px  #99ccff;padding-left:100px;} 
 #navl{float:left;}
 #navl li{display:inline; height:40px;float:left;} 
-#navl li a{display:inline-block; padding:0 20px; height:40px; line-height:40px;
+#navl li a{display:inline-block; padding:0 10px; height:40px; line-height:40px;
  color:#FFF; font-size:14px;text-decoration:none;} 
 #navl li a:hover{border-bottom:5px #fff solid;}
 
