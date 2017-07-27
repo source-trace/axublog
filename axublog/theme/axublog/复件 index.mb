@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$webname}|{$webinfo}</title>
+<meta name="description" content="">
+<?php include("top.mb");?>
+
+
+<iframe allowtransparency="true" frameborder="0" width="0" height="0" scrolling="no" src="{$weburl}tianqi/caiji.php"></iframe>
+<a href='{$weburl}tianqi/index.html' target=_blank>南汇惠南镇天气预报:<iframe allowtransparency="true" frameborder="0" width="350" height="14" scrolling="no" src="{$weburl}tianqi/jdtianqi.html"></iframe></a>
+<h6></h6>
+
+
+
+<!--hot-->
+<div id=indexlinks>
+<h3 id=red>南汇最热门</h3>
+<li><a href="http://www.qunanhui.com/tags/tao_hua_jie_124615/">南汇桃花节</a></li>
+<li><a href="http://www.qunanhui.com/tags/tian_qi_141738/">南汇天气</a></li>
+<li><a href="http://www.qunanhui.com/tags/nan_hui_tao_hua_cun_201444/">南汇桃花村</a></li>
+<li><a href="http://www.qunanhui.com/tags/nan_hui_zhong_xue_72422/">南汇中学</a></li>
+<li><a href="http://www.qunanhui.com/tags/nan_hui_zui_guan_hai_gong_yuan_134421/">南汇嘴观海公园</a></li>
+<li><a>南汇52生活网</a></li>
+<li><a>南汇大学城</a></li>
+<li><a>南汇二中</a></li>
+<li><a>南汇二手房</a></li>
+<li><a>南汇中心医院</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+<!--hot-->
+<div id=indexlinks>
+<h3>南汇旅游景点</h3>
+<li><a href="http://www.qunanhui.com/tags/tao_hua_jie_124615/">南汇桃花节</a></li>
+<li><a>南汇桃花村</a></li>
+<li><a>上海野生动物园</a></li>
+<li><a>南汇水蜜桃采摘</a></li>
+<li><a>南汇古钟园</a></li>
+<li><a>新场古镇</a></li>
+<li><a>南汇博物馆</a></li>
+<li><a>南汇体育场</a></li>
+<li><a>中华民族大观园</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+<!--hot-->
+<div id=indexlinks>
+<h3 id=purple>临港旅游景点</h3>
+<li><a href="http://www.qunanhui.com/tags/di_shui_hu_141454/">滴水湖</a></li>
+<li><a href="http://www.qunanhui.com/tags/nan_hui_zui_guan_hai_gong_yuan_134421/">南汇嘴观海公园</a></li>
+<li><a href="http://www.qunanhui.com/tags/xian_hua_gang_123426/">南汇上海鲜花港</a></li>
+<li><a>中国航海博物馆</a></li>
+<li><a>东海大桥</a></li>
+<li><a>上海浦东射击俱乐部</a></li>
+<li><a>洋山深水港</a></li>
+<li><a>芦潮港</a></li>
+<li><a>上海滨海森林公园</a></li>
+<li><a>海风电科普馆</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+<!--hot-->
+<div id=indexlinks>
+<h3>南汇商圈-惠南镇</h3>
+<li><a>南汇步行街</a></li>
+<li><a>南门乐购</a></li>
+<li><a>惠南禹州商业广场</a></li>
+<li><a>南汇名品村</a></li>
+<li><a>南汇欧尚超市</a></li>
+<li><a>南汇世纪联华</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+<!--hot-->
+<div id=indexlinks>
+<h3 id=yellow>惠南镇公共交通</h3>
+<li><a href="http://www.qunanhui.com/tags/di_tie_16_hao_xian_135551/">地铁16号线惠南站</a></li>
+<li><a>公共汽车公交车</a></li>
+<li><a>出租车</a></li>
+<li><a>ofo共享单车-小黄车</a></li>
+<li><a>摩拜单车</a></li>
+<li><a>滴滴打车</a></li>
+<li><a>EVCARD电动汽车租赁</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+
+
+<!--hot-->
+<div id=indexlinks class=s15>
+<h3 id=green>惠南镇幼儿园</h3>
+<li><a>荡湾幼儿园</a></li>
+<li><a>听潮艺术幼儿园</a></li>
+<li><a>靖海南路靖海之星幼儿园</a></li>
+<li><a>拱极路靖海之星幼儿园</a></li>
+<li><a>听潮艺术幼儿园香桂部</a></li>
+<li><a>惠南镇西门幼儿园</a></li>
+<li><a>惠南镇东城幼儿园</a></li>
+<li><a>南汇实验幼儿园</a></li>
+<li><a>浦东新区民乐幼儿园</a></li>
+<li><a>南汇英雄幼儿园</a></li>
+<li><a>绿苑幼儿园</a></li>
+<li><a>南门幼儿园</a></li>
+<li><a>惠然幼儿园</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+<!--hot-->
+<div id=indexlinks class=s15>
+<h3 id=blue><a href="http://www.qunanhui.com/tags/xiao_xue_102846/">惠南镇小学</a></h3>
+<li><a>浦东新区惠南小学</a></li>
+<li><a>逸夫小学</a></li>
+<li><a>浦东新区惠南第二小学</a></li>
+<li><a>南汇外国语小学</a></li>
+<li><a>荡湾小学</a></li>
+<li><a>云翔小学</a></li>
+<li><a>民办博奥利星行小学</a></li>
+<li><a>浦东新区惠南小学北校区</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+<!--hot-->
+<div id=indexlinks class=s15>
+<h3 id=red>南汇中学</h3>
+<li><a href="http://www.qunanhui.com/tags/shang_hai_nan_hui_zhong_xue_72422/">上海南汇中学</a></li>
+<li><a>南汇实验学校</a></li>
+<li><a href="http://www.qunanhui.com/tags/nan_hui_yi_zhong_191833/">上海市南汇第一中学</a></li>
+<li><a>上海市南汇第二中学</a></li>
+<li><a target=_blank href="http://www.qunanhui.com/tags/di_san_zhong_xue_124211/">南汇第三中学</a></li>
+<li><a >上海市南汇第四中学</a></li>
+<li><a>工商外国语学院附属中学</a></li>
+<li><a>上海市南汇第五中学</a></li>
+<li><a>师大附属第二外国语学校</a></li>
+<li><a>上海市黄路学校</a></li>
+<li><a>浦东新区卫生学校</a></li>
+<li><a>浦东新区致立学校</a></li>
+<li><a>南汇业余中学</a></li>
+<li><a>环境学校南汇分部</a></li>
+<li><a>电视中等专业学校</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+
+<!--hot-->
+<div id=indexlinks class=s15>
+<h3 id=yellow>南汇大学城</h3>
+<li><a>上海工商外国语大学</a></li>
+<li><a>上海电力学院</a></li>
+<li><a>兴伟学院</a></li>
+<li><a>上海申洋国际交流学院</a></li>
+<li><a>上海医药职工大学</a></li>
+<li><a>南洋科技进修学院</a></li>
+<li><a>上海志通进修学院</a></li>
+<li><a>上海思博职业技术学院</a></li>
+<li><a>上海电视大学</a></li>
+<li><a>上海理工大学</a></li>
+<li><a>复旦大学太平洋金融学院</a></li>
+<li><a>上海开放大学浦东南校</a></li>
+</div>
+<div id=indexlinks_w15> </div>
+<!--hot-->
+
+
+
+
+<div id=br></div>
+
+<?php
+$chkdb='';
+$tab=$tabhead."arts";
+mysql_select_db($tab);
+$sql = mysql_query("select * from ".$tab.$chkdb." order by id desc limit 0,10");
+if(!$sql){echo "<font color=red>(打开数据库时遇到错误!)</font>";return false;}
+
+while($row=mysql_fetch_array($sql))
+{
+$p_id=$row['id'];
+$p_author=$row['author'];
+$p_title=$row['title'];
+$p_info=$row['content'];
+$p_info=getartinfo($p_info);
+
+$p_arturl=arttourl($row['htmlname']);
+$p_htmlname=$row['htmlname'];
+$p_date=$row['edate'];
+$p_hit=$row['hit'];
+
+$p_tags='';
+$a=artidgettagids($p_id);
+$shu=count($a);
+    for($i=1;$i<=$shu;$i++){
+    $tagid=$a[$i-1];
+    $b=navidgetnav($tagid);
+    $type=$b['type'];
+    $name=$b['name'];
+ $htmlname=$b['htmlname'];
+    if($type=='nav'){$p_nav=$name;$p_navurl=tagtourl($htmlname);}
+    if($type=='tag'){$p_tags=$p_tags.'<a href="'.tagtourl($htmlname).'" >'.$name.'</a>,';}
+    }
+
+echo <<<EOF
+<!--blog start-->
+<div id=bloglist>
+<h3><a target=_blank href='{$p_arturl}'>{$p_title}</a></h3>
+<li id=author>{$p_author}</li>
+<li id=date>{$p_date} </li>
+<li id=tags>{$p_tags}</li>
+<h6></h6>
+<div id=info>{$p_info}</div>
+<div id=btn><a target=_blank href='{$p_arturl}'>阅读全文</a></div>
+<h6></h6>
+</div>
+<h6></h6>
+<!--blog end-->
+EOF;
+}
+?>
+
+<?php include("copy.mb");?>

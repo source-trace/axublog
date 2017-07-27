@@ -1,0 +1,19 @@
+﻿body{
+FONT: 13px Verdana,Arial,Tahoma;
+margin:0 auto;
+padding:0;
+word-break:break-all;
+background:#eee;
+}
+div,ul,li{margin:0;padding:0;}
+#nav{width:100%-100px;height:40px; background:url(../images/logo8831.gif) no-repeat 10px  #99ccff;padding-left:100px;} 
+#navl{float:left;}
+#navl li{display:inline; height:40px;float:left;} 
+#navl li a{display:inline-block; padding:0 20px; height:40px; line-height:40px;
+ color:#FFF; font-size:14px;text-decoration:none;} 
+#navl li a:hover{border-bottom:5px #fff solid;}
+
+#navr{width:200px;float:right;color:#FFF; height:40px;}
+#navr a{display:inline-block;line-height:40px;height:40px;background:url(../images/white-user_32.png) no-repeat 1px;padding-left:22px;color:#FFF; }
+#navr a:hover{line-height:40px;height:40px;color:#FFF; border-bottom:5px #fff solid;}
+#djs{border:0;background: #333;color:white;}

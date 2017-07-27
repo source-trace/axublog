@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="tags标签-{$webname}">
+<link rel="stylesheet" href="{$weburl}{$themepath}style.css" type="text/css" />
+<title>tags标签_{$webname}</title>
+</head>
+<body>
+
+
+<div id=centerbody>
+
+
+<div id=webtitle><a href="{$weburl}">{$webname}</a></div>
+<div id=webinfo>{$webinfo}</div>
+<!-----toplink----->
+
+
+
+    <div id="navigation">
+        <h1><ul id="top-links">
+<li><a href="{$weburl}" title="{$webinfo}">首页</a></li>
+<li><a href="{$weburl}{$tagpath}" title="tags标签">tags</a></li>
+{$topmenu}
+        </ul></h1>
+
+        <form action="?" id="search-form" class="search-form" method="get">
+            <div>
+                <input type="text" size="20"
+                       onblur="if (this.value === ''){this.className='';}document.getElementById('search-button').className = 'go';"
+                       onfocus="this.className = 'actived';document.getElementById('search-button').className = 'go ready';"
+                       value="" id="search-text" name="s" class="search-text"/>
+                <button id="search-button" type="submit" class="go">go</button>
+            </div>
+        </form>
+    </div>
+<!-----topmenu----->
+
+
+
+
+
+<div id=whiteyj><div id=whiteyj_left></div><div id=whiteyj_right></div></div>
+<!-----白色圆角----->
+
+<div id=mainbody>
+
+<div id=mainbody_left>
+
+
+
+<div id=step>您的位置：<b>tags标签</b> - <a href="{$weburl}">首页</a></div>
+
+
+
+<?php
+$a=getalltag();
+$shu=count($a);
+
+echo'<div id=taglist><p>tags标签数量：'.$shu.'</p>';
+
+for($i=1;$i<=$shu;$i++){
+$b=$a[$i-1];
+$id=$b['id'];
+$name=$b['name'];
+$htmlname=$b['htmlname'];
+$info=$b['info'];
+$url=tagtourl($htmlname);
+$atagshu=navidgetartids($id);
+$tagshu=count($atagshu);
+echo '<span><a title="'.$info.'" href="'.$url.'" >'.$name.' ['.$tagshu.']</a></span>';
+}
+
+echo'</div>';
+
+?>
+
+
+
+
+<?php include("copy.mb");?>
+
+

@@ -1,0 +1,129 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<?
+$title='关于本站_'.$webname;
+?>
+<meta name="description" content="{$title}">
+<link rel="stylesheet" href="{$weburl}{$themepath}style.css" type="text/css" />
+<title>{$title}</title>
+</head>
+<body>
+
+
+<div id=centerbody>
+
+
+<div id=webtitle><a href="{$weburl}">{$webname}</a></div>
+<div id=webinfo>{$webinfo}</div>
+<!-----toplink----->
+
+
+
+    <div id="navigation">
+        <h1><ul id="top-links">
+<li><a href="{$weburl}" title="{$webinfo}">首页</a></li>
+<li><a href="{$weburl}{$tagpath}" title="tags标签">tags</a></li>
+{$topmenu}
+        </ul></h1>
+
+        <form action="?" id="search-form" class="search-form" method="get">
+            <div>
+                <input type="text" size="20"
+                       onblur="if (this.value === ''){this.className='';}document.getElementById('search-button').className = 'go';"
+                       onfocus="this.className = 'actived';document.getElementById('search-button').className = 'go ready';"
+                       value="" id="search-text" name="s" class="search-text"/>
+                <button id="search-button" type="submit" class="go">go</button>
+            </div>
+        </form>
+    </div>
+<!-----topmenu----->
+
+
+
+
+
+<div id=whiteyj><div id=whiteyj_left></div><div id=whiteyj_right></div></div>
+<!-----白色圆角----->
+
+<div id=mainbody>
+
+<div id=mainbody_left>
+<!-------头部 end----------->
+
+
+
+
+
+
+
+
+
+
+<div id=step>您的位置：关于本站 < <a href="<?=$weburl?>"><?=$webname?></a></div>
+
+
+<div id=artlist>
+
+
+<h2 id=title>关于本站</h2>
+
+
+
+<div id=info>
+<p id=ad><script src="{$weburl}{$themepath}js/wzgg.js" language="JavaScript"></script></p>
+<!-------ad end----------->
+
+<p>	网站创建日期：{$webbegindate}</p>
+<p>	网站运行天数：<a id="days">0</a>天</p>
+<p>	站长：{$webauthor}</p>
+<p>	网站简介：{$webinfo}</p>
+
+
+<p></p>
+<script>
+var s1 = '2016-10-29';//设置为你的建站时间
+s1 = new Date(s1.replace(/-/g, "/"));
+s2 = new Date();
+var days = s2.getTime() - s1.getTime();
+var number_of_days = parseInt(days / (1000 * 60 * 60 * 24));
+document.getElementById('days').innerHTML = number_of_days;
+</script>
+
+
+
+<!-- BDFX BEGIN -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!-- BDFX BEGIN -->
+
+
+
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js"></script>
+<!-- UY END -->
+
+
+</div>
+<!-------content end----------->
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<?php include("copy.mb");?>
+
+

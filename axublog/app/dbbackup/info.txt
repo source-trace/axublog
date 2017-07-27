@@ -1,0 +1,47 @@
+<name>dbbackup数据库备份恢复程序</name>
+<info>备份mysql数据库并压缩到zip，可下载或发送到指定email，恢复mysql之前请先清空数据库。</info>
+<url>http://www.axublog.com</url>
+<version>1.0.0</version>
+<author>Donny</author>
+<email>donghuigu@qq.com</email>
+<date>2012-1-6</date>
+<lastdate>2017-6-2</lastdate>
+<type>back</type>
+<site>bottom</site>
+<switch>on</switch>
+
+
+PHP备份恢复MYSQL数据库程序1.0_by_Donny
+ 免费原创程序，请尊重作者保留版权信息 http://www.axublog.com
+
+学习PHP一段时间了，对于PHP+MYSQL，很方便很快捷，但是数据库的备份和恢复很值得重视，由于我先前的程序没有重视这一块，后果可想而知了。。。
+
+于是，折腾出了这一个程序。
+
+代码很粗糙，结构很简单，效果还OK,自己够用了暂时。
+
+虚拟主机测试可用，但建议各位先测试下程序（我需要收集各个平台的兼容性和BUG,请把您的运行环境或虚拟主机等【详细情况】和BUG建议发给我，谢谢）。
+
+开发和测试环境：winxp+PHPnow服务器（Apache-2.0,MySQL-5.0,PHP-5.2）
+
+献给和我一样刚接触PHP的PHPER们。。。
+官方主页：http://www.axublog.com
+qq微博（BUG和建议）：
+
+
+功能简介：备份mysql数据库并压缩到zip，可下载或发送到指定email，恢复mysql之前请先清空数据库。
+2012-1-6 加入了zip自动压缩功能，先前是在conn.php中设置数据库信息的，改为在线修改，方便备份和恢复,添加了备份文件的删除功能。
+
+
+程序结构和使用说明:
+conn.php	菜单
+index.php	程序首页，遍历程序目录，列举已经备份的.zip文件
+backup.php	备份数据库，自动以【数据库名日期时间】命名保存到程序目录
+delall.php	清空数据库【慎用】
+huifu.php	恢复数据库
+sendmail.php	发送邮件主程序，【需要设置收发件账户信息】
+class.phpmailer.php	邮件类
+class.smtp.php	邮件类
+c_zip.php	zip类
+
+

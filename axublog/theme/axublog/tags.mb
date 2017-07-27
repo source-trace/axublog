@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?php
+$p_taghtmlname=$t;
+$a=taghtmlnamegettag($p_taghtmlname);
+$p_tag=$a['name'];
+$p_tagid=$a['id'];
+$p_taginfo=$a['info'];
+$p_tagurl=tagtourl($p_taghtmlname);
+$title=$p_tag."-Tags标签-".$webname;
+?>
+<title>{$title}</title>
+<meta name="description" content="">
+
+<?php include("top.mb");?>
+<!--seat-->
+<div id=seat>
+您的位置：<b><a href="{$weburl}">首页</a>><a href="{$weburl}{$tagpath}">Tags标签</a>><?=$p_tag?></b> 
+<?php
+$arr=navidgetartids($p_tagid);
+$artshu=count($arr);
+echo'<span><b>'.$p_tag.'</b> 共有 <font color=red>'.$artshu.'</font> 篇文章</span>';
+?>
+</div>
+<h6></h6>
+<!--seat-->
+
+<?php
+    if ($artshu==0){    }
+    else{
+for($i=1;$i<=$artshu;$i++){
+$p_id=$arr[$i-1];
+$a=artidgetart($p_id);
+$p_author=$a['author'];
+$p_title=$a['title'];
+$p_info=$a['content'];
+$p_info=getartinfo($p_info);
+
+$p_arturl=arttourl($a['htmlname']);
+$p_htmlname=$a['htmlname'];
+$p_hit=$a['hit']+1;
+$p_date=$a['edate'];
+$p_type=$a['type'];
+
+$p_tags='';
+$a=artidgettagids($p_id);
+$shu=count($a);
+    for($j=1;$j<=$shu;$j++){
+    $tagid=$a[$j-1];
+    $b=navidgetnav($tagid);
+    $type=$b['type'];
+    $name=$b['name'];
+ $htmlname=$b['htmlname'];
+    if($type=='nav'){$p_nav=$name;$p_navurl=tagtourl($htmlname);}
+    if($type=='tag'){$p_tags=$p_tags.'<a href="'.tagtourl($htmlname).'" >'.$name.'</a>,';}
+    }
+
+	if($p_type=='art'){
+	echo <<<EOF
+<!--blog start-->
+<div id=bloglist>
+<h3><a target=_blank href='{$p_arturl}'>{$p_title}</a></h3>
+<li id=author>{$p_author}</li>
+<li id=date>{$p_date}  &nbsp; &nbsp; &nbsp;被围观了{$p_hit} 次
+</li>
+<li id=tags>{$p_tags}</li>
+<h6></h6>
+<div id=info>{$p_info}</div>
+<div id=btn><a target=_blank href='{$p_arturl}'>阅读全文</a></div>
+<h6></h6>
+</div>
+<h6></h6>
+<!--blog end-->
+EOF;
+	}
+}
+    
+    }
+
+?>
+
+<?php include("copy.mb");?>

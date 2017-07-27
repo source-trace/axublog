@@ -1,0 +1,25 @@
+﻿*{overflow-x:hidden;}
+body{margin:0;padding:0;FONT: 13px Verdana,Arial,Tahoma;word-break:break-all; color:#444;}
+p{margin:2px;padding:2px;}
+
+div{
+margin:0;padding:0;
+height:auto !important; /*兼容FF,IE7也支持 !important标签*/
+
+}
+
+
+
+
+
+#leftmenu{width:265px;padding:0;margin:0;margin-left:5px;BORDER: #B8E7B3 1px solid;-webkit-border-radius: 4px;  -moz-border-radius: 4px;  border-radius: 4px;}
+#leftmenu #leftmenu_top,#leftmenu2 #leftmenu_top{padding:0;margin:0;background:#E7F9E3;
+  -webkit-border-radius: 4px 4px 0 0;  -moz-border-radius: 4px 4px 0 0;  border-radius: 4px 4px 0 0;}
+#leftmenu li,#leftmenu2 li{float:left;padding:0px;margin:0;}
+#leftmenu li A,#leftmenu2 li A{TEXT-DECORATION: none;width:80px;padding:4px;display:block;color: #1E8D17;}
+#leftmenu li A:hover,#leftmenu2 li A:hover {color: #333; -webkit-border-radius: 0 0 4px 4px;  -moz-border-radius:  0 0 4px 4px;  border-radius:  0 0 4px 4px;}
+#leftmenu ul,#leftmenu2 ul{padding:0px;margin:0;}
+
+#leftmenu2{width:265px;padding:0;margin:0;margin-top:5px;margin-left:5px;BORDER: #B8E7B3 1px solid;-webkit-border-radius: 4px;  -moz-border-radius: 4px;  border-radius: 4px;}
+p  {float:none;width:250px;padding:4px;}
+p  a{TEXT-DECORATION: none;color: #1E8D17;}

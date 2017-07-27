@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<?php
+$p_htmlname=$p;
+if(@$a==''){@$a=arturlgetart($p);}
+$p_url=arttourl($p_htmlname);
+$p_author=$a['author'];
+$p_title=$a['title'];
+$p_content=stripslashes($a['content']);
+$p_type=$a['type'];
+$p_edate=$a['edate'];
+$p_id=$a['id'];
+
+$p_tags='';
+$p_nav='';
+$a=artidgettagids($p_id);
+$shu=count($a);
+    for($i=1;$i<=$shu;$i++){
+    $tagid=$a[$i-1];
+    $b=navidgetnav($tagid);
+    $type=$b['type'];
+    $name=$b['name'];
+ $htmlname=$b['htmlname'];
+$p_tags=$p_tags.'<a href="'.tagtourl($htmlname).'" >'.$name.'</a>,';
+$p_nav=$p_nav." ".$name;
+    }
+
+$title=$p_title.'-'.$p_nav.'-'.$webname;
+?>
+<title>{$title}</title>
+<meta name="description" content="">
+<?php include("top.mb");?>
+<!--seat-->
+<div id=seat>
+您的位置：<b><a href="{$weburl}">首页</a>><?=$p_tags?>>正文</b> 
+</div>
+<h6></h6>
+<!--seat-->
+
+<!--blog start-->
+<div id=bloglist>
+<!--title start-->
+<h1><?=$p_title?></h1>
+<li id=author><?=$p_author?></li>
+<li id=date><?=$p_edate?> &nbsp; &nbsp; &nbsp;
+被围观了<script src="{$weburl}hit.php?g=arthit&id=<?=$p_id?>"></script>次</li>
+<li id=tags><?=$p_tags?></li>
+<h6></h6>
+<!--title end-->
+<!--content start-->
+<div id=content> 
+<p id=contentjs><script src="{$weburl}{$themepath}content.js"></script></p>
+<!-------ad end----------->
+
+<?=$p_content?>
+
+
+<p>文章 <a href="<?=$p_url?>"><?=$p_title?></a> 为 <a href="<?=$weburl?>"><?=$webname?></a> 原创，转载请注明</p>
+<p>来源:<a href="<?=$p_url?>"><?=$p_url?></a></p>
+<h4>上一篇：<?=upart($p_id)?></h4>
+<h4>下一篇：<?=nextart($p_id)?></h4>
+
+<!-- BDFX BEGIN -->
+<div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a></div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"1","bdSize":"32"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+<!-- BDFX BEGIN -->
+
+<!--comment start-->
+<div id="SOHUCS" sid="<?=$p_id?>" ></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cyt3WqsP0',
+conf: 'prod_398baec422de420c9a96c4506706a9dc'
+});
+</script>
+<!-- comment END -->
+
+</div>
+<h6></h6>
+
+<!--content end-->
+</div>
+<!--blog end-->
+<h6></h6>
+
+<?php include("copy.mb");?>

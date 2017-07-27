@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<?php
+$title='文章归档';
+?>
+<meta name="description" content="{$title}-{$webname}">
+<link rel="stylesheet" href="{$weburl}{$themepath}style.css" type="text/css" />
+<title>{$title}_{$webname}</title>
+</head>
+<body>
+
+
+<div id=centerbody>
+
+
+<div id=webtitle><a href="{$weburl}">{$webname}</a></div>
+<div id=webinfo>{$webinfo}</div>
+<!-----toplink----->
+
+
+
+    <div id="navigation">
+        <h1><ul id="top-links">
+<li><a href="{$weburl}" title="{$webinfo}">首页</a></li>
+<li><a href="{$weburl}{$tagpath}" title="tags标签">tags</a></li>
+{$topmenu}
+        </ul></h1>
+
+        <form action="?" id="search-form" class="search-form" method="get">
+            <div>
+                <input type="text" size="20"
+                       onblur="if (this.value === ''){this.className='';}document.getElementById('search-button').className = 'go';"
+                       onfocus="this.className = 'actived';document.getElementById('search-button').className = 'go ready';"
+                       value="" id="search-text" name="s" class="search-text"/>
+                <button id="search-button" type="submit" class="go">go</button>
+            </div>
+        </form>
+    </div>
+<!-----topmenu----->
+
+
+
+
+<div id=whiteyj><div id=whiteyj_left></div><div id=whiteyj_right></div></div>
+<!-----白色圆角----->
+
+<div id=mainbody>
+
+<div id=mainbody_left>
+
+
+
+<div id=step>您的位置：<b>{$title}</b> - <a href="{$weburl}">首页</a></div>
+
+
+<script language="javascript">
+//创建一个showhidediv的方法，直接跟ID属性
+function showhidediv(id){
+var sbtitle=document.getElementById(id);
+if(sbtitle){
+   if(sbtitle.style.display=='block'){
+   sbtitle.style.display='none';
+   }else{
+   sbtitle.style.display='block';
+   }
+}
+}
+</script>
+
+
+
+<?php
+$a=getallartbydate();
+$shu=count($a);
+
+$mhtml='';
+echo'<div id=allarts_tit1>文章归档 (共有 '.$shu.' 篇文章)</div>';
+
+
+for($i=1;$i<=$shu;$i++){
+$b=$a[$i-1];
+$id=$b['id'];
+$name=$b['title'];
+$htmlname=$b['htmlname'];
+$hit=$b['hit'];
+$thedate=$b['edate'];
+$url=arttourl($b['htmlname']);
+$d=explode('-',$thedate);
+$ty=$d[0];
+$tm=$d[1];
+$td=substr($d[2],0,2);
+if(str_replace($ty.'年'.$tm.'月,','',$mhtml)==$mhtml){$mhtml=$mhtml.$ty.'年'.$tm.'月,';$SESSION[$ty.'年'.$tm.'月']='';}
+$SESSION[$ty.'年'.$tm.'月']=$SESSION[$ty.'年'.$tm.'月'].'<p>'.$td.'日:<a target=_blank href="'.$url.'">'.$name.'</a></p>'."\r\n";
+}
+
+
+$d=explode(',',$mhtml);
+$shu=count($d);
+for($i=0;$i<$shu-1;$i++){
+$arts=$SESSION[$d[$i]];
+$sa=explode('</p>',$arts);
+$sashu=count($sa)-1;
+echo '<h3 id=allarts_tit><a onclick=\'showhidediv("h'.$i.'")\'>'.$d[$i].' (有 '.$sashu.' 篇文章) [显示隐藏]</a></h3>';
+echo '<div id="h'.$i.'">'.$arts.'</div>'."\r\n";
+}
+
+
+
+
+?>
+
+
+
+
+<?php include("copy.mb");?>
+
+

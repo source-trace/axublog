@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>内容归档-{$webname}</title>
+<meta name="description" content="">
+
+<?php include("top.mb");?>
+
+<!--allart-->
+<script language="javascript">
+//创建一个showhidediv的方法，直接跟ID属性
+function showhidediv(id){
+var sbtitle=document.getElementById(id);
+if(sbtitle){
+   if(sbtitle.style.display=='block'){
+   sbtitle.style.display='none';
+   }else{
+   sbtitle.style.display='block';
+   }
+}
+}
+</script>
+
+
+<!--seat-->
+<div id=seat>
+您的位置：<b><a href="{$weburl}">首页</a>>内容归档</b> 
+<span>共有<font color=red>2</font>篇内容</span>
+<?php
+$a=getallartbydate();
+$shu=count($a);
+$mhtml='';
+echo'<span>共有<font color=red>'.$shu.'</font>篇内容</span>';
+?>
+</div>
+<h6></h6>
+<!--seat-->
+
+<?php
+for($i=1;$i<=$shu;$i++){
+$b=$a[$i-1];
+$id=$b['id'];
+$name=$b['title'];
+$htmlname=$b['htmlname'];
+$hit=$b['hit'];
+$thedate=$b['edate'];
+$url=arttourl($b['htmlname']);
+$d=explode('-',$thedate);
+$ty=$d[0];
+$tm=$d[1];
+$td=substr($d[2],0,2);
+if(str_replace($ty.'年'.$tm.'月,','',$mhtml)==$mhtml){$mhtml=$mhtml.$ty.'年'.$tm.'月,';$SESSION[$ty.'年'.$tm.'月']='';}
+$SESSION[$ty.'年'.$tm.'月']=$SESSION[$ty.'年'.$tm.'月'].'<p>'.$td.'日:<a target=_blank href="'.$url.'">'.$name.'</a></p>'."\r\n";
+}
+
+
+$d=explode(',',$mhtml);
+$shu=count($d);
+for($i=0;$i<$shu-1;$i++){
+$arts=$SESSION[$d[$i]];
+$sa=explode('</p>',$arts);
+$sashu=count($sa)-1;
+echo '<div id=bloglist><h3 id=allarts_tit><a onclick=\'showhidediv("h'.$i.'")\'>'.$d[$i].' (有 '.$sashu.' 篇文章) </a></h3>';
+echo '<div id="h'.$i.'">'.$arts.'</div></div><h6></h6>'."\r\n";
+}
+?>
+<!--allart-->
+
+
+
+<?php include("copy.mb");?>

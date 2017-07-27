@@ -1,0 +1,79 @@
+﻿body{
+FONT: 13px Verdana,Arial,Tahoma;
+margin:0 auto;
+padding:0;
+margin:10px;
+word-break:break-all;
+background:#eee;
+}
+
+a{text-decoration:none;}
+a:hover{text-decoration:underline;}
+
+ #text{
+width: 140px;
+background: #fff;
+margin:0;
+padding:4px;
+border:1px solid #ccc;
+}
+
+
+h1{
+margin:0 auto;
+border:1px #99ccff solid;
+border-bottom:0;
+width:280px;
+height:60px;
+background:#fff;
+font-weight:normal;
+font-size:24px;
+margin-top:50px;
+background:#99ccff;
+}
+h1 img{padding-top:9px;}
+#send{
+border:1px solid #B2D0EA;
+background:#EDF7FF;
+color:#009999;
+font-size:14px;
+padding:7px 10px 4px 10px;
+width:250px;
+height:40px;
+}
+
+#login{
+margin:0 auto;
+border:1px #ccc solid;
+border-top:0;
+width:250px;
+padding:15px;
+padding-bottom:0;
+background:#fff;
+color:#000;
+}
+
+
+#copy a{color:#57a000;}
+#copy{clear:both;text-align:center;padding:10px;}
+
+
+#redmsg{
+background: #ffcece;
+border: #df8f8f 1px solid;
+color: red;
+font-size:14px;
+padding:10px;
+padding-top:14px;
+}
+
+
+#bluemsg{
+border:1px solid #B2D0EA;
+background:#EDF7FF;
+color:#003399;
+font-size:14px;
+padding:10px;
+padding-top:14px;
+}
+

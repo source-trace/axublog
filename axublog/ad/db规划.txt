@@ -1,0 +1,8 @@
+nnd_arts:id  author  title  content  htmlname  type  hit cdate  edate  
+nnd_adusers:id  adnaa  adpss  
+nnd_navs:id  name  htmlname  info  type  fuid  
+nnd_config:id  cname  cvalue  
+nnd_nav_art:navid artid 
+nnd_links:id url name logo
+
+jquery-1.8.2.min.js

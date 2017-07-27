@@ -1,0 +1,67 @@
+﻿
+
+</div>
+<!-----中部左边----->
+
+<div id=mainbody_right>
+
+
+
+
+<div id=widget>
+<div id=title><a href="{$weburl}{$tagpath}" >热门Tags</a></div>
+<div id=widget_taglist>{$showhottag}</div>
+</div>
+
+<div id=widget>
+<div id=title><a>TOP10</a></div>
+<div id=widget_taglist>{$showhotart}</div>
+</div>
+
+<div id=widget>
+<div id=title><a>网友推荐</a></div>
+<div id=widget_taglist>{$showrandomart}</div>
+</div>
+
+
+</div>
+<!-----中部右边----->
+
+
+</div>
+<!-----中部内容----->
+
+
+
+
+
+
+
+
+<div id=br></div>
+
+<div id=footer_links>
+<a href="{$weburl}about.html">关于本站</a>
+<a target=_blank href="{$weburl}sitemap.xml" title="google谷歌,baidu百度,sitemap" >Sitemap</a>
+<a target=_blank href="{$weburl}rss.xml" title="订阅RSS,订阅源,Feed">Rss</a>
+<a target=_blank href="{$weburl}allarts.html" title="查看所有文章列表">文章归档</a>
+<a target=_blank href="http://www.qunanhui.com" >去南汇</a>
+</div>
+<!-----footer links----->
+
+<div id=footer_copy>
+<p id=l>Copyright © 2016 <a href="{$weburl}"  title="{$webinfo}"><b>{$webname}</b></a>. All rights reserved
+ &nbsp;  &nbsp; 沪ICP备16040435号-1
+</p>
+<p id=r>
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1260680534'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/stat.php%3Fid%3D1260680534%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+</p>
+</div>
+
+
+
+
+</div>
+</body>
+</html>
+

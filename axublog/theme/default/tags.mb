@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<?php
+$p_taghtmlname=$t;
+$a=taghtmlnamegettag($p_taghtmlname);
+$p_tag=$a['name'];
+$p_tagid=$a['id'];
+$p_taginfo=$a['info'];
+$p_tagurl=tagtourl($p_taghtmlname);
+$title=$p_tag."_tags标签_".$webname;
+?>
+<meta name="description" content="{$title}">
+<link rel="stylesheet" href="{$weburl}{$themepath}style.css" type="text/css" />
+<title>{$title}</title>
+</head>
+<body>
+
+
+<div id=centerbody>
+
+
+<div id=webtitle><a href="{$weburl}">{$webname}</a></div>
+<div id=webinfo>{$webinfo}</div>
+<!-----toplink----->
+
+
+
+    <div id="navigation">
+        <h1><ul id="top-links">
+<li><a href="{$weburl}" title="{$webinfo}">首页</a></li>
+<li><a href="{$weburl}{$tagpath}" title="tags标签">tags</a></li>
+{$topmenu}
+        </ul></h1>
+
+        <form action="?" id="search-form" class="search-form" method="get">
+            <div>
+                <input type="text" size="20"
+                       onblur="if (this.value === ''){this.className='';}document.getElementById('search-button').className = 'go';"
+                       onfocus="this.className = 'actived';document.getElementById('search-button').className = 'go ready';"
+                       value="" id="search-text" name="s" class="search-text"/>
+                <button id="search-button" type="submit" class="go">go</button>
+            </div>
+        </form>
+    </div>
+<!-----topmenu----->
+
+
+
+
+
+<div id=whiteyj><div id=whiteyj_left></div><div id=whiteyj_right></div></div>
+<!-----白色圆角----->
+
+<div id=mainbody>
+
+<div id=mainbody_left>
+
+
+
+
+<?php
+
+echo'<div id=step>您的位置：<b>'.$p_tag.'</b> < <a href="{$weburl}{$tagpath}">tags标签</a> < <a href="{$weburl}">{$webname}</a></div>';
+
+$arr=navidgetartids($p_tagid);
+$artshu=count($arr);
+
+echo'<p><b>'.$p_tag.'</b> 共有 <font color=red>'.$artshu.'</font> 篇文章</p>';
+
+
+    if ($artshu==0){
+
+    }
+    else{
+for($i=1;$i<=$artshu;$i++){
+$p_id=$arr[$i-1];
+$a=artidgetart($p_id);
+$p_author=$a['author'];
+$p_title=$a['title'];
+$p_info=$a['content'];
+$p_info=getartinfo($p_info);
+
+$p_arturl=arttourl($a['htmlname']);
+$p_htmlname=$a['htmlname'];
+$p_hit=$a['hit'];
+$p_date=$a['edate'];
+$p_type=$a['type'];
+
+$p_tags='';
+$a=artidgettagids($p_id);
+$shu=count($a);
+    for($j=1;$j<=$shu;$j++){
+    $tagid=$a[$j-1];
+    $b=navidgetnav($tagid);
+    $type=$b['type'];
+    $name=$b['name'];
+ $htmlname=$b['htmlname'];
+    if($type=='nav'){$p_nav=$name;$p_navurl=tagtourl($htmlname);}
+    if($type=='tag'){$p_tags=$p_tags.'<a href="'.tagtourl($htmlname).'" >'.$name.'</a>,';}
+    }
+
+	if($p_type=='art'){
+echo <<<EOF
+
+<div id=artlist>
+<h2 id=title><a target=_blank href='{$p_arturl}'>{$p_title}</a></h2>
+<h4>{$p_date}</h4>
+<div id=info>{$p_info}</div>
+<h3>tags: {$p_tags}</h3>
+<h4>作者:{$p_author} | 浏览:{$p_hit} | <a target=_blank href='{$p_arturl}'>阅读全文...</a></h4>
+<div id=line></div>
+</div>
+<!-----文章列表------>
+
+EOF;
+}
+}
+    
+    }
+
+
+
+echo'<div id=br></div><p><b>'.$p_tag.'</b> 共有 <font color=red>'.$artshu.'</font> 篇文章</p>';
+
+
+?>
+
+
+
+
+<?php include("copy.mb");?>
+
+

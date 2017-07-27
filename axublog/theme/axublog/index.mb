@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{$webname}-Powered by axublog</title>
+<meta name="description" content="{$webinfo}">
+<?php include("top.mb");?>
+
+
+<div id=br></div>
+
+<?php
+$chkdb='';
+$tab=$tabhead."arts";
+mysql_select_db($tab);
+$sql = mysql_query("select * from ".$tab.$chkdb." where type='art' order by id desc limit 0,10");
+if(!$sql){echo "<font color=red>(打开数据库时遇到错误!)</font>";return false;}
+
+while($row=mysql_fetch_array($sql))
+{
+$p_id=$row['id'];
+$p_author=$row['author'];
+$p_title=$row['title'];
+$p_info=$row['content'];
+$p_info=getartinfo($p_info);
+
+$p_arturl=arttourl($row['htmlname']);
+$p_htmlname=$row['htmlname'];
+$p_date=$row['edate'];
+$p_hit=$row['hit']+1;
+
+$p_tags='';
+$a=artidgettagids($p_id);
+$shu=count($a);
+    for($i=1;$i<=$shu;$i++){
+    $tagid=$a[$i-1];
+    $b=navidgetnav($tagid);
+    $type=$b['type'];
+    $name=$b['name'];
+ $htmlname=$b['htmlname'];
+    if($type=='nav'){$p_nav=$name;$p_navurl=tagtourl($htmlname);}
+    if($type=='tag'){$p_tags=$p_tags.'<a href="'.tagtourl($htmlname).'" >'.$name.'</a>,';}
+    }
+
+echo <<<EOF
+<!--blog start-->
+<div id=bloglist>
+<h3><a target=_blank href='{$p_arturl}'>{$p_title}</a></h3>
+<li id=author>{$p_author}</li>
+<li id=date>{$p_date}  &nbsp; &nbsp; &nbsp;被围观了{$p_hit} 次
+</li>
+<li id=tags>{$p_tags}</li>
+<h6></h6>
+<div id=info>{$p_info}</div>
+<div id=btn><a target=_blank href='{$p_arturl}'>阅读全文</a></div>
+<h6></h6>
+</div>
+<h6></h6>
+<!--blog end-->
+EOF;
+}
+?>
+
+<?php include("copy.mb");?>
